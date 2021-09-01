@@ -1,0 +1,57 @@
+# Key value pairs
+app: user-authentication
+port: 9000
+version: 1.7
+
+# It is not required to cover string in single/ double-quote 
+# However, if we gonna add a special characters like \n, \t then single/ double quotes are required
+app_new_line: "user-authetication \n"
+
+# We can also wrap key-value pairs in object
+# The following is microservice key followed by values below it
+microservices:
+  app: user-authentication
+  port: 9000
+  version: 1.7
+
+# The following is a microservice object as a list of key-value pairs
+microservices:
+  - app: user-authentication
+    port: 9000
+    version: 1.7
+    deployed: false
+  - app: shopping-cart
+    port: 9002
+    versions: [1.9, 2.0, 2.1]
+
+
+# microservices can also be expressed as a list of values as the following
+microservice: 
+  - user-authentication
+  - shopping-cart
+
+# Multiline string using pipe (|)
+multilineString: | 
+  this is a multiline string
+  that is assigned to multilineString
+  object
+
+# Multiline string treated as a single line using right angle bracket ( > )
+multilineAsSingleline: >
+  this is a multiline string that will be 
+  interpreted as a single line
+
+# Using environmental variable
+command:
+  - /bin/sh
+  - -ec
+  - >-
+    mysql -h 127.0.0.1 -u root -p $MYSQL_ROOT_PASSWORD -e 'SELECT 1'
+    
+
+
+  
+
+
+
+  
